@@ -2,7 +2,14 @@
  * e que compoe a classe "Prova" */
 public class Objetiva extends Questao {
     
-    /** construtor para inicializar as String vazias e numeros zerados */
+    // ------------------------------ ATRIBUTOS ----------------------------- //
+    /** sao as alternativas (a, b, c, d, e) da pergunta Objetiva */
+    private String[] opcoes ;
+    /** eh a Respota Correta dentra as alternativas disponiveis */
+    private int respostaCorreta ;
+    
+    
+    // ----------------------------- CONSTRUTOR ----------------------------- //
     public Objetiva () {
         for (int i = 0 ; i < 5 ; i++) {
             if (this.opcoes == null) {
@@ -12,16 +19,9 @@ public class Objetiva extends Questao {
         }
         this.respostaCorreta = 0 ;
     }
-    
-    
-    // ------------------------------ ATRIBUTOS ----------------------------- //
-    /** sao as alternativas (a, b, c, d, e) da pergunta Objetiva */
-    private String[] opcoes ;
-    /** eh a Respota Correta dentra as alternativas disponiveis */
-    private int respostaCorreta ;
-    
-    
-    // -------------------------------- SETs -------------------------------- //
+	
+	
+	// -------------------------------- SETs -------------------------------- //
     /** atribui uma alternativa para uma Questao Objetiva
      * @param i indica a posicao no vetor de opcoes
      * @param opcao eh a String da opcao, indicada por "i" */

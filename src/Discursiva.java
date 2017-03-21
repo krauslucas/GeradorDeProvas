@@ -2,18 +2,18 @@
  * e que compoe a classe "Prova" */
 public class Discursiva extends Questao {
     
-    /** construtor para inicializar as String vazias */
-    public Discursiva () {
-        this.criteriosCorrecao = ""  ;
-    }
-    
-    
     // ------------------------------ ATRIBUTOS ----------------------------- //
     /** sao os Criterios de Correcao que serao avaliados para determinar
      * se a Questao esta correta ou nao */
     private String criteriosCorrecao  ;
     
+	
+	// ----------------------------- CONSTRUTOR ----------------------------- //
+    public Discursiva () {
+        this.criteriosCorrecao = ""  ;
+    }
     
+	
     // -------------------------------- SETs -------------------------------- //
     /** atribui os Criterios de Correcao
      * @param criteriosCorrecao Criterios de Correcao */

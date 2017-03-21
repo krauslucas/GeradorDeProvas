@@ -1,17 +1,6 @@
 /** classe "Prova" */
 public class Prova {
     
-    /** construtor para inicializar as String vazias e numeros zerados */
-    public Prova () {
-        this.data = ""  ;
-        this.disciplina = "" ;
-        this.local = "" ;
-        this.nDiscursivas = 0 ;
-        this.nObjetivas = 0 ;
-        this.peso = 0 ;
-    }
-    
-    
     // ------------------------------ ATRIBUTOS ----------------------------- //
     /** eh a Disciplina da Prova */
     private String disciplina ;
@@ -31,7 +20,18 @@ public class Prova {
     private Objetiva[] qObjetivas ;
     
     
-    // -------------------------------- SETs -------------------------------- //
+    // ----------------------------- CONSTRUTOR ----------------------------- //
+    public Prova () {
+        this.data = ""  ;
+        this.disciplina = "" ;
+        this.local = "" ;
+        this.nDiscursivas = 0 ;
+        this.nObjetivas = 0 ;
+        this.peso = 0 ;
+    }
+    
+	
+	// -------------------------------- SETs -------------------------------- //
     /** @param disciplina Disciplina */
     public void setDisciplina (String disciplina) {
         this.disciplina = disciplina ;

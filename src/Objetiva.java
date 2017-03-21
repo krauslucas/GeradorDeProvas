@@ -2,7 +2,7 @@
  * e que compoe a classe "Prova" */
 public class Objetiva extends Questao {
     
-    /** construtor para inicializar as String vazias e inteiros com 0 (zero)*/
+    /** construtor para inicializar as String vazias e numeros zerados */
     public Objetiva () {
         for (int i = 0 ; i < 5 ; i++) {
             if (this.opcoes == null) {
@@ -10,33 +10,34 @@ public class Objetiva extends Questao {
             }
             this.opcoes[i] = "" ;
         }
-        this.opcaoCorreta = 0 ;
+        this.respostaCorreta = 0 ;
     }
     
     
-    // --------------- ATRIBUTOS (privados) --------------- //
-    /** sao as alternativas (a, b, c, d, e) da pergunta objetiva */
+    // ------------------------------ ATRIBUTOS ----------------------------- //
+    /** sao as alternativas (a, b, c, d, e) da pergunta Objetiva */
     private String[] opcoes ;
-    /** eh a Opcao Correta dentra as alternativas disponiveis */
-    private int opcaoCorreta ;
+    /** eh a Respota Correta dentra as alternativas disponiveis */
+    private int respostaCorreta ;
     
-    // -------------------- SETs -------------------- //
-    /** atribui uma Opcao a questao objetiva
+    
+    // -------------------------------- SETs -------------------------------- //
+    /** atribui uma alternativa para uma Questao Objetiva
      * @param i indica a posicao no vetor de opcoes
      * @param opcao eh a String da opcao, indicada por "i" */
     public void setOpcoes (int i, String opcao) {
         this.opcoes[i] = opcao ;
     }
     
-    /** atribui a Opcao Certa dentre as alternativas
-     * @param opcaoCorreta eh a Opcao Correta dentre as alternativas */
-    public void setOpcaoCorreta (int opcaoCorreta) {
-        this.opcaoCorreta = opcaoCorreta ;
+    /** atribui a Resposta Correta dentre as alternativas
+     * @param respostaCorreta eh a Resposta Correta dentre as alternativas */
+    public void setRespostaCorreta (int respostaCorreta) {
+        this.respostaCorreta = respostaCorreta ;
     }
     
     
-    // -------------------- GETs -------------------- //
-    /** obter uma das opcoes da questao Objetiva, indicada pelo indice "i"
+    // -------------------------------- GETs -------------------------------- //
+    /** obter uma das opcoes da Questao Objetiva, indicada pelo indice "i"
      * @return opcao indica pelo indice "i" */
     public String getOpcoes () {
         String ops = "" ;
@@ -46,15 +47,16 @@ public class Objetiva extends Questao {
         return ops ;
     }
     
-    /** obter a Opcao Certa dentre as alternativas
-     * @return Opcao Certa */
-    public int getOpcaoCorreta () {
-        return this.opcaoCorreta ;
+    /** obter a Respota Correta dentre as alternativas
+     * @return Resposta Correta */
+    public int getRespostaCorreta () {
+        return this.respostaCorreta ;
     }
     
     
+    // --------------------------- OUTROS METODOS --------------------------- //
     /** retornar como ficou a Questao Objetiva
-     * @return String concatenada com todas as informacoes*/
+     * @return String concatenada com todas as informacoes */
     public String retornaQuestao () {
         String questao = "" ;
         

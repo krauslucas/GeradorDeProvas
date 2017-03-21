@@ -1,7 +1,7 @@
 /** classe "Prova" */
 public class Prova {
     
-    /** construtor para inicializar as String vazias e inteiros com 0 (zero)*/
+    /** construtor para inicializar as String vazias e numeros zerados */
     public Prova () {
         this.data = ""  ;
         this.disciplina = "" ;
@@ -12,7 +12,7 @@ public class Prova {
     }
     
     
-    // --------------- ATRIBUTOS (privados) --------------- //
+    // ------------------------------ ATRIBUTOS ----------------------------- //
     /** eh a Disciplina da Prova */
     private String disciplina ;
     /** eh o Local que sera realizada a Prova */
@@ -30,7 +30,8 @@ public class Prova {
     /** sao as Questoes Objetivas */
     private Objetiva[] qObjetivas ;
     
-    // ------------------------- SETs ------------------------- //
+    
+    // -------------------------------- SETs -------------------------------- //
     /** @param disciplina Disciplina */
     public void setDisciplina (String disciplina) {
         this.disciplina = disciplina ;
@@ -81,16 +82,16 @@ public class Prova {
     /** cria uma Questao Objetiva
      * @param i     indice do vetor de Questoes Objetivas
      * @param perg  Perguntaunta da Questao Objetiva indicada por "i"
-     * @param oC    Opcao Certa dentre as alternativas
+     * @param rC    Resposta Correta dentre as alternativas
      * @param peso  Peso da Questao Objetiva indicada por "i" */
-    public void setQuestaoObjetiva (int i, String perg, int oC, double peso) {
+    public void setQuestaoObjetiva (int i, String perg, int rC, double peso) {
         Objetiva obj = new Objetiva () ;
         if (this.qObjetivas == null){
             this.qObjetivas = new Objetiva[this.getNObjetivas ()] ;
         }
         this.qObjetivas[i] = new Objetiva () ;
         obj.setPergunta (perg) ;
-        obj.setOpcaoCorreta (oC) ;
+        obj.setRespostaCorreta (rC) ;
         obj.setPeso (peso) ;
         this.qObjetivas[i] = obj ;
     }
@@ -103,8 +104,20 @@ public class Prova {
         this.qObjetivas[i].setOpcoes (j, opcao) ;
     }
     
+    /** dados para criar o Cabecalho da Prova
+     * @param disciplina   Disciplina
+     * @param local Local
+     * @param data  Data
+     * @param peso  Peso da Prova */
+    public void setCabecalho (String disciplina, String local, String data, double peso) {
+        setDisciplina (disciplina) ;
+        setLocal (local) ;
+        setData (data) ;
+        setPeso (peso) ;
+    }
+    
             
-    // ------------------------- GETs ------------------------- //
+    // -------------------------------- GETs -------------------------------- //
     /** @return Disciplina */
     public String getDisciplina () {
         return this.disciplina ;
@@ -135,19 +148,6 @@ public class Prova {
         return this.nObjetivas ;
     }
     
-    
-    /** dados para criar o Cabecalho da Prova
-     * @param disciplina   Disciplina
-     * @param local Local
-     * @param data  Data
-     * @param peso  Peso da Prova */
-    public void setCabecalho (String disciplina, String local, String data, double peso) {
-        setDisciplina (disciplina) ;
-        setLocal (local) ;
-        setData (data) ;
-        setPeso (peso) ;
-    }
-    
     /** @return Cabecalho da Prova */
     public String getCabecalho () {
         String cabecalho = "" ;
@@ -161,6 +161,8 @@ public class Prova {
         return cabecalho ;
     }
     
+    
+    // --------------------------- OUTROS METODOS --------------------------- //
     /** @return Impressao da Prova Completa */
     public String imprimirProva () {
         String prova = "" ;

@@ -1,14 +1,14 @@
 /** classe "Questao" */
 public abstract class Questao {
     
-    /** construtor para inicializar as String vazias e inteiros com 0 (zero)*/
+    /** construtor para inicializar as String vazias e numeros zerados */
     public Questao () {
         this.pergunta = "" ;
         this.peso = 0 ;
     }
     
     
-    // --------------- ATRIBUTOS (privados) --------------- //
+    // ------------------------------ ATRIBUTOS ----------------------------- //
     /** eh a Pergunta da Questao */
     private String pergunta ;
     /** eh o Peso da Questao */
@@ -17,9 +17,10 @@ public abstract class Questao {
     implementadas em suas respectivas classes */
     public abstract String retornaQuestao () ;
     
-    // -------------------- SETs -------------------- //
-    /** atribui uma Perguntaunta para a Questao
-     * @param pergunta Perguntaunta */
+    
+    // -------------------------------- SETs -------------------------------- //
+    /** atribui uma Pergunta para a Questao
+     * @param pergunta Pergunta */
     public void setPergunta (String pergunta) {
         this.pergunta = pergunta ;
     }
@@ -31,7 +32,7 @@ public abstract class Questao {
     }
     
     
-    // -------------------- GETs -------------------- //
+    // -------------------------------- GETs -------------------------------- //
     /** obter Pergunta da Questao
      * @return Pergunta */
     public String getPergunta () {

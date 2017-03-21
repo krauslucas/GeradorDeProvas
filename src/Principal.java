@@ -1,6 +1,6 @@
 import java.util.Scanner ;
 
-/** classe "Principal" a qual contem o metodo que torna a classe executavel */
+/** classe "Principal" a qual contem o metodo (main) que torna a classe executavel */
 public class Principal {
     
     public static void main (String[] args) {

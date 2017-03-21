@@ -2,18 +2,19 @@
  * e que compoe a classe "Prova" */
 public class Discursiva extends Questao {
     
-    /** construtor para inicializar as String vazias e inteiros com 0 (zero)*/
+    /** construtor para inicializar as String vazias */
     public Discursiva () {
         this.criteriosCorrecao = ""  ;
     }
     
     
-    // --------------- ATRIBUTOS (privados) --------------- //
+    // ------------------------------ ATRIBUTOS ----------------------------- //
     /** sao os Criterios de Correcao que serao avaliados para determinar
      * se a Questao esta correta ou nao */
     private String criteriosCorrecao  ;
     
-    // -------------------- SETs -------------------- //
+    
+    // -------------------------------- SETs -------------------------------- //
     /** atribui os Criterios de Correcao
      * @param criteriosCorrecao Criterios de Correcao */
     public void setCriteriosCorrecao (String criteriosCorrecao) {
@@ -21,7 +22,7 @@ public class Discursiva extends Questao {
     }
     
     
-    // -------------------- GETs -------------------- //
+    // -------------------------------- GETs -------------------------------- //
     /** obter os Criterios de Correcao da Questao Discursiva
      * @return Criterios de Correcao */
     public String getCriteriosCorrecao () {
@@ -29,8 +30,9 @@ public class Discursiva extends Questao {
     }
     
     
+    // --------------------------- OUTROS METODOS --------------------------- //
     /** retornar como ficou a Questao Discursiva
-     * @return String concatenada com todas as informacoes*/
+     * @return String concatenada com todas as informacoes */
     public String retornaQuestao () {
         String questao = "" ;
         

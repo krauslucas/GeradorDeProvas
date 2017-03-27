@@ -4,8 +4,10 @@ public abstract class Questao {
     // ------------------------------ ATRIBUTOS ----------------------------- //
     /** eh a Pergunta da Questao */
     private String pergunta ;
+    
     /** eh o Peso da Questao */
     private double peso ;
+    
     /** metodo abstrato o qual retorna uma Questao (discursiva ou objetiva),
     implementadas em suas respectivas classes */
     public abstract String retornaQuestao () ;

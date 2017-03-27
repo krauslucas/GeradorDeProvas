@@ -1,23 +1,43 @@
+import java.util.ArrayList;
+
 /** classe "Prova" */
 public class Prova {
     
     // ------------------------------ ATRIBUTOS ----------------------------- //
     /** eh a Disciplina da Prova */
     private String disciplina ;
+    
     /** eh o Local que sera realizada a Prova */
     private String local ;
+    
     /** eh a Data de quando sera realizada a Prova */
     private String data ;
+    
     /** eh o Peso da Prova */
     private double peso ;
-    /** eh o Numero de Questoes Discursivas */
+    
+    /** eh o Numero de Questoes Discursivas
+     * @deprecated agora o usuario podera alterar a quantidade de questoes
+     * em tempo de exexucao, uma a uma */
     private int nDiscursivas ;
-    /** eh o Numero de Questoes Objetivas */
+    
+    /** eh o Numero de Questoes Objetivas
+     * @deprecated agora o usuario podera alterar a quantidade de questoes
+     * em tempo de exexucao, uma a uma */
     private int nObjetivas ;
-    /** sao as Questoes Discursivas */
+    
+    /** sao as Questoes Discursivas
+     * @deprecated introduzido um ArrayList que armazenara ambos
+     * tipos de Questoes, Discursivas e Objetivas */
     private Discursiva[] qDiscursivas ;
-    /** sao as Questoes Objetivas */
+    
+    /** sao as Questoes Objetivas
+     * @deprecated introduzido um ArrayList que armazenara ambos
+     * tipos de Questoes, Discursivas e Objetivas */
     private Objetiva[] qObjetivas ;
+    
+    /** sao as Questoes da Prova, que poderao ser Discursivas ou Objetivas */
+    private ArrayList<Questao> listaQuestoes ;
     
     
     // ----------------------------- CONSTRUTOR ----------------------------- //

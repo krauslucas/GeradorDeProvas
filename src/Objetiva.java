@@ -5,6 +5,7 @@ public class Objetiva extends Questao {
     // ------------------------------ ATRIBUTOS ----------------------------- //
     /** sao as alternativas (a, b, c, d, e) da pergunta Objetiva */
     private String[] opcoes ;
+    
     /** eh a Respota Correta dentra as alternativas disponiveis */
     private int respostaCorreta ;
     

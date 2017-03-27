@@ -1,10 +1,8 @@
-/** classe "Discursiva" herdada da classe "Questao"
- * e que compoe a classe "Prova" */
+/** classe "Discursiva" herdada da classe "Questao" e que compoe a classe "Prova" */
 public class Discursiva extends Questao {
     
     // ------------------------------ ATRIBUTOS ----------------------------- //
-    /** sao os Criterios de Correcao que serao avaliados para determinar
-     * se a Questao esta correta ou nao */
+    /** sao os Criterios de Correcao que serao avaliados para determinar se a Questao esta correta ou nao */
     private String criteriosCorrecao  ;
     
 	
@@ -32,12 +30,12 @@ public class Discursiva extends Questao {
     
     // --------------------------- OUTROS METODOS --------------------------- //
     /** retornar como ficou a Questao Discursiva
-     * @return String concatenada com todas as informacoes */
+     * @return String concatenada com todas as informacoes da Questao Discursiva */
     public String retornaQuestao () {
         String questao = "" ;
         
-        questao += "(" + this.getPeso () + ") " ;
-        questao += this.getPergunta () + "\n" ;
+        questao += "(" + this.getPeso() + ") " ;
+        questao += this.getPergunta() + "\n" ;
         questao += "Criterios Correcao: " + this.getCriteriosCorrecao () + "\n" ;
         questao += "\n" ;
         

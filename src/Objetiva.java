@@ -1,5 +1,4 @@
-/** classe "Objetiva" herdada da classe "Questao"
- * e que compoe a classe "Prova" */
+/** classe "Objetiva" herdada da classe "Questao" e que compoe a classe "Prova" */
 public class Objetiva extends Questao {
     
     // ------------------------------ ATRIBUTOS ----------------------------- //
@@ -57,12 +56,12 @@ public class Objetiva extends Questao {
     
     // --------------------------- OUTROS METODOS --------------------------- //
     /** retornar como ficou a Questao Objetiva
-     * @return String concatenada com todas as informacoes */
+     * @return String concatenada com todas as informacoes da Questao Objetiva */
     public String retornaQuestao () {
         String questao = "" ;
         
-        questao += "(" + this.getPeso () + ") " ;
-        questao += this.getPergunta () + "\n" ;
+        questao += "(" + this.getPeso() + ") " ;
+        questao += this.getPergunta() + "\n" ;
         for (int i = 0 ; i < 5 ; i++)
             questao += "(" + (char)(97 + i) + ") " + this.opcoes[i] + "\n" ;
         questao += "\n" ;

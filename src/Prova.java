@@ -16,28 +16,8 @@ public class Prova {
     /** eh o Peso da Prova */
     private double peso ;
     
-    /** eh o Numero de Questoes Discursivas
-     * @deprecated agora o usuario podera alterar a quantidade de questoes
-     * em tempo de exexucao, uma a uma */
-    private int nDiscursivas ;
-    
-    /** eh o Numero de Questoes Objetivas
-     * @deprecated agora o usuario podera alterar a quantidade de questoes
-     * em tempo de exexucao, uma a uma */
-    private int nObjetivas ;
-    
-    /** sao as Questoes Discursivas
-     * @deprecated introduzido um ArrayList que armazenara ambos
-     * tipos de Questoes, Discursivas e Objetivas */
-    private Discursiva[] qDiscursivas ;
-    
-    /** sao as Questoes Objetivas
-     * @deprecated introduzido um ArrayList que armazenara ambos
-     * tipos de Questoes, Discursivas e Objetivas */
-    private Objetiva[] qObjetivas ;
-    
     /** sao as Questoes da Prova, que poderao ser Discursivas ou Objetivas */
-    private ArrayList<Questao> listaQuestoes ;
+    private ArrayList <Questao> listaQuestoes  = new ArrayList () ;
     
     
     // ----------------------------- CONSTRUTOR ----------------------------- //
@@ -45,8 +25,6 @@ public class Prova {
         this.data = ""  ;
         this.disciplina = "" ;
         this.local = "" ;
-        this.nDiscursivas = 0 ;
-        this.nObjetivas = 0 ;
         this.peso = 0 ;
     }
     
@@ -72,56 +50,35 @@ public class Prova {
         this.peso = peso ;
     }
     
-    /** @param nDiscursivas Numero de Questos Discursivas */
-    public void setNDiscursivas (int nDiscursivas) {
-        this.nDiscursivas = nDiscursivas  ;
-    }
-    
-    /** @param nObjetivas Numero de Questoes Objetivas */
-    public void setNObjetivas (int nObjetivas) {
-        this.nObjetivas = nObjetivas ;
-    }
-    
     /** cria uma Questao Discursiva
-     * @param i     indice do vetor de Questoes Discursivas
-     * @param perg  Perguntaunta da Questao Discursiva indicada por "i"
+     * @param perg  Pergunta da Questao Discursiva indicada por "i"
      * @param cC    Criterios de Correcao da Questao Discursiva
-     * @param peso  Peso da Questao Discursiva indicada por "i" */
-    public void setQuestaoDiscursiva (int i, String perg, String cC, double peso) {
+     * @param peso  Peso da Questao Discursiva */
+    public void setQuestaoDiscursiva (String perg, String cC, double peso) {
         Discursiva dis = new Discursiva () ;
-        if (this.qDiscursivas == null) {
-            this.qDiscursivas = new Discursiva[this.getNDiscursivas ()] ;
-        }
-        this.qDiscursivas[i] = new Discursiva () ;
-        dis.setPergunta (perg) ;
-        dis.setPeso (peso) ;
-        dis.setCriteriosCorrecao (cC) ;
-        this.qDiscursivas[i] = dis ;
+        
+        dis.setPergunta(perg) ;
+        dis.setPeso(peso) ;
+        dis.setCriteriosCorrecao(cC) ;
+        
+        this.listaQuestoes.add(dis) ;
     }
     
     /** cria uma Questao Objetiva
-     * @param i     indice do vetor de Questoes Objetivas
-     * @param perg  Perguntaunta da Questao Objetiva indicada por "i"
+     * @param perg  Pergunta da Questao Objetiva indicada por "i"
+     * @param ops   sao as alternativas (a, b, c, d, e) da pergunta Objetiva
      * @param rC    Resposta Correta dentre as alternativas
-     * @param peso  Peso da Questao Objetiva indicada por "i" */
-    public void setQuestaoObjetiva (int i, String perg, int rC, double peso) {
+     * @param peso  Peso da Questao Objetiva */
+    public void setQuestaoObjetiva (String perg, String[] ops, int rC, double peso) {
         Objetiva obj = new Objetiva () ;
-        if (this.qObjetivas == null){
-            this.qObjetivas = new Objetiva[this.getNObjetivas ()] ;
+        
+        obj.setPergunta(perg) ;
+        obj.setPeso(peso) ;
+        for (int i = 0 ; i < 5 ; i++) {
+            obj.setOpcoes(i, ops[i]) ;
         }
-        this.qObjetivas[i] = new Objetiva () ;
-        obj.setPergunta (perg) ;
-        obj.setRespostaCorreta (rC) ;
-        obj.setPeso (peso) ;
-        this.qObjetivas[i] = obj ;
-    }
-    
-    /** atribui as alternativas de uma Questao Objetiva ja criada
-     * @param i     indice do vetor de Questoes Objetivas
-     * @param j     indice do vetor de Opcoes
-     * @param opcao Descricao de uma das Opcoes (a, b, c, d, e) */
-    public void setQuestaoObjetiva (int i, int j, String opcao) {
-        this.qObjetivas[i].setOpcoes (j, opcao) ;
+        
+        this.listaQuestoes.add(obj) ;
     }
     
     /** dados para criar o Cabecalho da Prova
@@ -134,9 +91,9 @@ public class Prova {
         setLocal (local) ;
         setData (data) ;
         setPeso (peso) ;
-    }
+    } 
     
-            
+    
     // -------------------------------- GETs -------------------------------- //
     /** @return Disciplina */
     public String getDisciplina () {
@@ -158,16 +115,6 @@ public class Prova {
         return this.peso ;
     }
     
-    /** @return Numero de Questoes Discursivas */
-    public int getNDiscursivas () {
-        return this.nDiscursivas ;
-    }
-    
-    /** @return Numero de Questoes Objetivas */
-    public int getNObjetivas () {
-        return this.nObjetivas ;
-    }
-    
     /** @return Cabecalho da Prova */
     public String getCabecalho () {
         String cabecalho = "" ;
@@ -187,20 +134,16 @@ public class Prova {
     public String imprimirProva () {
         String prova = "" ;
         int nQuestao = 1 ;
+        int qtdQuestoes = this.listaQuestoes.size() ;
         
-        prova += this.getCabecalho () + "\n" ;
+        prova += this.getCabecalho() + "\n" ;
         
-        for (int i = 0 ; i < this.getNDiscursivas () ; i++) {
-            prova += nQuestao + ". " + this.qDiscursivas[i].retornaQuestao () ;
+        for (int i = 0 ; i < qtdQuestoes ; i++) {
+            prova += nQuestao + ". " + this.listaQuestoes.get(i).retornaQuestao() ;
             nQuestao++ ;
         }
         
-        for (int i = 0 ; i < this.getNObjetivas () ; i++) {
-            prova += nQuestao + ". " + this.qObjetivas[i].retornaQuestao () ;
-            nQuestao++ ;
-        }
-        
-        prova += "-->> BOA SORTE <<--" + "\n" ;
+        prova += "-->> BOA SORTE <<--" + "\t\t\t\t" + "(Lucas Kraus)" + "\n" ;
         
         return prova ;    
     }

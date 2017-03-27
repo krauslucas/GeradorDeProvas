@@ -8,8 +8,7 @@ public abstract class Questao {
     /** eh o Peso da Questao */
     private double peso ;
     
-    /** metodo abstrato o qual retorna uma Questao (discursiva ou objetiva),
-    implementadas em suas respectivas classes */
+    /** metodo abstrato o qual retorna uma Questao (Discursiva ou Objetiva), implementadas em suas respectivas classes */
     public abstract String retornaQuestao () ;
     
     
@@ -19,8 +18,8 @@ public abstract class Questao {
         this.peso = 0 ;
     }
     
-	
-	// -------------------------------- SETs -------------------------------- //
+    
+    // -------------------------------- SETs -------------------------------- //
     /** atribui uma Pergunta para a Questao
      * @param pergunta Pergunta */
     public void setPergunta (String pergunta) {

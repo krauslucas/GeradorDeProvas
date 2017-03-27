@@ -5,7 +5,7 @@ public class Objetiva extends Questao {
     /** sao as alternativas (a, b, c, d, e) da pergunta Objetiva */
     private String[] opcoes ;
     
-    /** eh a Respota Correta dentra as alternativas disponiveis */
+    /** eh a Resposta Correta dentra as alternativas disponiveis */
     private int respostaCorreta ;
     
     
@@ -47,7 +47,7 @@ public class Objetiva extends Questao {
         return ops ;
     }
     
-    /** obter a Respota Correta dentre as alternativas
+    /** obter a Resposta Correta dentre as alternativas
      * @return Resposta Correta */
     public int getRespostaCorreta () {
         return this.respostaCorreta ;
